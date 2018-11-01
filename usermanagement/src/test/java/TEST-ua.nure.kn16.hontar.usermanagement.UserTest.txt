@@ -1,26 +1,9 @@
 Testsuite: ua.nure.kn16.hontar.usermanagement.UserTest
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0,04 sec
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0,11 sec
 
-Testcase: initializationError took 0,002 sec
-	Caused an ERROR
-org/hamcrest/SelfDescribing
-java.lang.NoClassDefFoundError: org/hamcrest/SelfDescribing
-	at java.lang.ClassLoader.defineClass1(Native Method)
-	at java.lang.ClassLoader.defineClass(Unknown Source)
-	at java.security.SecureClassLoader.defineClass(Unknown Source)
-	at java.net.URLClassLoader.defineClass(Unknown Source)
-	at java.net.URLClassLoader.access$100(Unknown Source)
-	at java.net.URLClassLoader$1.run(Unknown Source)
-	at java.net.URLClassLoader$1.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.net.URLClassLoader.findClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(Unknown Source)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-Caused by: java.lang.ClassNotFoundException: org.hamcrest.SelfDescribing
-	at java.net.URLClassLoader.findClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(Unknown Source)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(Unknown Source)
-
+Testcase: testGetFullName took 0,015 sec
+Testcase: testGetAge1 took 0,016 sec
+Testcase: testGetAge2 took 0 sec
+Testcase: testGetAge3 took 0 sec
+Testcase: testGetAge4 took 0 sec
+Testcase: testGetAge5 took 0 sec
