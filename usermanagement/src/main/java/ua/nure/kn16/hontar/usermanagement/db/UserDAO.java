@@ -1,5 +1,6 @@
 package ua.nure.kn16.hontar.usermanagement.db;
 
+import java.util.Collection;
 import java.util.List;
 import ua.nure.kn16.hontar.usermanagement.User;
 
@@ -15,23 +16,23 @@ public interface UserDAO {
 	 * @param id
 	 * @return 
 	 */
-	public User find(final Long id);
+	public User find(final Long id) throws DatabaseException;
 	/**
 	 * 
 	 * @param
 	 * @return 
 	 */
-	public List<User> findAll();
+	public Collection<User> findAll() throws DatabaseException;
 	/**
 	 * 
 	 * @param 
 	 * @return 
 	 */
-	public void update(final User user);
+	public void update(final User user) throws DatabaseException;
 	/**
 	 * 
 	 * @param 
 	 * @return 
 	 */
-	public void delete(final User user);
+	public void delete(final User user) throws DatabaseException;
 }

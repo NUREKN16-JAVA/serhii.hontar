@@ -1,13 +1,8 @@
 package ua.nure.kn16.hontar.usermanagement.db;
 
-import java.nio.channels.ConnectionPendingException;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
+import java.sql.*;
+import java.util.Collection;
+
 
 import ua.nure.kn16.hontar.usermanagement.User;
 
@@ -24,36 +19,38 @@ public HsqldbUserDAO (ConnectionFactory connectionFactory)
   this.connectionFactory = connectionFactory;
   
 }
+public ConnectionFactory getConnectionFactory() {
+    return connectionFactory;
+}
 	@Override
-	public User create(User user) throws DatabaseException {	
-		try {
-			Connection connection =connectionFactory.createConnection();
-			PreparedStatement statement = connection
-					.prepareStatement(INSERT_QUERY);
-			statement.setString(1, user.getFirstName());
-			statement.setString(2, user.getLastName());
-			statement.setDate(3, new Date(user.getDateOfBirthd().getTime()));
-			int number = statement.executeUpdate();
-			if (number != 1){
-				throw new DatabaseException("Number of the inserted rows is " + number);
-			}
-			CallableStatement callebleStatement = 
-					connection.prepareCall("call IDENTITY()");
-			ResultSet keys = callebleStatement.executeQuery();
-					if (keys.next())
-					{
-					user.setId(new Long(keys.getLong(1)));	
-						
-					}
-					keys.close();
-					callebleStatement.close();
-					statement.close();
-					connection.close();
-					return user;
-		} catch (SQLException e) {
-			throw new DatabaseException(e);
-		}
-	}
+	public User create(User user) throws DatabaseException {
+        
+        try {
+        	Connection connection = connectionFactory.createConnection();
+            PreparedStatement statement = connection
+                    .prepareStatement(INSERT_QUERY);
+            statement.setString(1,user.getFirstName());
+            statement.setString(2,user.getLastName());
+            statement.setDate(3,new Date(user.getDateOfBirthd().getTime()));
+            int number = statement.executeUpdate();
+            if(number != 1){
+                throw new DatabaseException("Number of inserted rows: " + number);
+            }
+            CallableStatement callableStatement = connection
+                    .prepareCall("call IDENTITY()");
+            User u = new User(user);
+            ResultSet keys = callableStatement.executeQuery();
+            if(keys.next()){
+                u.setId(keys.getLong(1));
+            }
+            keys.close();
+            callableStatement.close();
+            statement.close();
+            return u;
+        } catch (SQLException e) {
+            throw new DatabaseException(e);
+        }
+    }
 
 	@Override
 	public User find(Long id) {
@@ -62,7 +59,7 @@ public HsqldbUserDAO (ConnectionFactory connectionFactory)
 	}
 
 	@Override
-	public List<User> findAll() {
+	public Collection<User> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -78,5 +75,7 @@ public HsqldbUserDAO (ConnectionFactory connectionFactory)
 		// TODO Auto-generated method stub
 
 	}
+
+
 
 }
