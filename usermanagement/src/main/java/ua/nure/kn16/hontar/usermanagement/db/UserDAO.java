@@ -35,4 +35,6 @@ public interface UserDAO {
 	 * @return 
 	 */
 	public void delete(final User user) throws DatabaseException;
+	
+	void  setConnectionFactory(ConnectionFactory connectionFactory);
 }

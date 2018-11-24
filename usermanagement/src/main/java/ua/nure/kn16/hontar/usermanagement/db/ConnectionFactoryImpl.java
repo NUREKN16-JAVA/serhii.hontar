@@ -11,17 +11,20 @@ public class ConnectionFactoryImpl implements ConnectionFactory {
 	  private String url= "jdbc:hsqldb:file:db/usermanagement";
 	  private String user = "sa";
 	  private String password = "";
+	  
+	  
+	ConnectionFactoryImpl() {
+			
+		}
 		
-ConnectionFactoryImpl(String driver, String url, String user, String password) {
+	ConnectionFactoryImpl(String driver, String url, String user, String password) {
 	  this.driver = driver;
 	  this.url = url;
 	  this.user = user;
 	  this.password = password;
 }
 
-	public ConnectionFactoryImpl() {
-	
-}
+
 
 	@Override
 	public Connection createConnection() throws DatabaseException {

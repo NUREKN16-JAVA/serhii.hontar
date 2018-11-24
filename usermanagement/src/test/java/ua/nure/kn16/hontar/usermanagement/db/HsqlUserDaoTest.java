@@ -2,7 +2,6 @@ package ua.nure.kn16.hontar.usermanagement.db;
 
 
 
-
 import java.util.Collection;
 import java.util.Date;
 

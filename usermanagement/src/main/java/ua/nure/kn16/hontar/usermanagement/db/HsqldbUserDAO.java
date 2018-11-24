@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 import ua.nure.kn16.hontar.usermanagement.User;
 
-public class HsqldbUserDAO implements UserDAO {
+class HsqldbUserDAO implements UserDAO {
 private static final String INSERT_QUERY = "INSERT INTO users (firstname,lastname,dateofbirth) VALUES (?,?,?)";
 private static final String FIND_ALL_QUERY = "SELECT id, firstname, lastname, dateofbirth FROM users";
 private static final String FIND_QUERY = "SELECT id, firstname, lastname, dateofbirth FROM users WHERE id = ?";
@@ -26,6 +26,11 @@ public HsqldbUserDAO (ConnectionFactory connectionFactory)
 public ConnectionFactory getConnectionFactory() {
     return connectionFactory;
 }
+
+public void setConnectionFactory(ConnectionFactory connectionFactory) {
+    this.connectionFactory = connectionFactory;
+}
+
 	@Override
 	public User create(User user) throws DatabaseException {
         
@@ -148,6 +153,7 @@ public ConnectionFactory getConnectionFactory() {
 		}
 		
 	}
+
 
 
 
