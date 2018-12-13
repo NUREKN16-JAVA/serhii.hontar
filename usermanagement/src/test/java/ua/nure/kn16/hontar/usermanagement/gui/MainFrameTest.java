@@ -46,11 +46,11 @@ public class MainFrameTest extends JFCTestCase {
 	  @Test
 	  public void testBrowseControls() {
 	    find(JPanel.class,"browserPanel");
-	   // JTable table = (JTable) find(JTable.class,"userTable");
-	   //assertEquals(3, table.getColumnCount());
-	    //assertEquals("id", table.getColumnName(0));//International
-	   // assertEquals("First Name", table.getColumnName(1));
-	    //assertEquals("Last Name", table.getColumnName(2));
+	   JTable table = (JTable) find(JTable.class,"userTable");
+	   assertEquals(3, table.getColumnCount());
+	   assertEquals("ID", table.getColumnName(0));//International
+	   assertEquals("Name", table.getColumnName(1));
+	   assertEquals("Surname", table.getColumnName(2));
 	  find(JButton.class,"addButton");
 	  find(JButton.class,"editButton");
 	  find(JButton.class,"deleteButton");
