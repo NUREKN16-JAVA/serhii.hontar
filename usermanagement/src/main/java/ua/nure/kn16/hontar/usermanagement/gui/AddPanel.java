@@ -1,16 +1,23 @@
 package ua.nure.kn16.hontar.usermanagement.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.time.LocalDate;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import ua.nure.kn16.hontar.usermanagement.User;
+import ua.nure.kn16.hontar.usermanagement.db.DatabaseException;
 import ua.nure.kn16.hontar.usermanagement.util.Messages;
 
 public class AddPanel extends JPanel implements ActionListener {
@@ -23,6 +30,7 @@ public class AddPanel extends JPanel implements ActionListener {
 	private JTextField dateOfBirthField;
 	private JTextField lastNameField;
 	private JTextField firstNameField;
+	private Color bgColor;
 	
 	public AddPanel(MainFrame parent) {
 		this.parent = parent;
@@ -113,8 +121,41 @@ public class AddPanel extends JPanel implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
+        if ("ok".equalsIgnoreCase(e.getActionCommand())) {
+            User user = new User();
+            user.setFirstName(getFirstNameField().getText());
+            user.setLastName(getLastNameField().getText());
+            DateFormat format = DateFormat.getDateInstance();
+            try {
+                user.setDateOfBirthd(format.parse(getDateOfBirthField().getText()));
+            } catch (ParseException e1) {
+             
+                getDateOfBirthField().setBackground(Color.RED);
+                return;
+            }
+
+            try {
+                parent.getDao().create(user);
+            } catch (DatabaseException e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(),
+                		"Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        clearFields();
+        this.setVisible(false);
+        parent.showBrowsePanel();
 		
+	}
+
+	private void clearFields() {
+		 	getFirstNameField().setText("");
+	        getFirstNameField().setBackground(bgColor);
+
+	        getLastNameField().setText("");
+	        getLastNameField().setBackground(bgColor);
+
+	        getDateOfBirthField().setText("");
+	        getDateOfBirthField().setBackground(bgColor);
 	}
 }
