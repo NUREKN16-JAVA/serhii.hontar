@@ -1,5 +1,6 @@
 package ua.nure.kn16.hontar.usermanagement;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -101,6 +102,7 @@ public class User {
 
 	        return this.getId().equals(((User)obj).getId());
 	    }
+
 	
 
 }

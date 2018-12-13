@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import ua.nure.kn16.hontar.usermanagement.User;
 import ua.nure.kn16.hontar.usermanagement.db.DaoFactory;
 import ua.nure.kn16.hontar.usermanagement.db.UserDAO;
 import ua.nure.kn16.hontar.usermanagement.util.Messages;
@@ -16,7 +17,10 @@ public class MainFrame extends JFrame {
 	
 	private JPanel contentPanel;
 	private JPanel browsePanel;
+	
 	private AddPanel addPanel;
+    private EditPanel editPanel;
+   // private DetailsPanel detailsPanel;
 	private UserDAO dao;
 
 	public MainFrame()
@@ -89,4 +93,33 @@ public class MainFrame extends JFrame {
 	public void showBrowsePanel() {
         showPanel(getBrowsePanel());
     }
+	
+	private EditPanel getEditPanel() {
+        if (editPanel == null) {
+            editPanel = new EditPanel(this);
+        }
+        // ((EditPanel) editPanel).resetFields();
+        return editPanel;
+    }
+
+
+    public User getSelectedUser() {
+        return ((BrowsePanel) browsePanel).getSelectedUser();
+    }
+
+    public void showEditPanel() {
+        showPanel(getEditPanel());
+    }
+/*
+    private DetailsPanel getDetailsPanel() {
+        if (detailsPanel == null) {
+            detailsPanel = new DetailsPanel(this);
+        }
+        return detailsPanel;
+    }
+
+    public void showDetailsPanel() {
+        //showPanel(getDetailsPanel());
+    }
+    */
 }
