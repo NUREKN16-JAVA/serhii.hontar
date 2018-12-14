@@ -23,7 +23,6 @@ public class DeletePanel extends JPanel implements ActionListener{
 
 	private JButton okButton;
 	
-	private User user;
 	
 	public  DeletePanel(MainFrame parent) {
 		this.parent = parent;
@@ -58,13 +57,10 @@ public class DeletePanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if("ok".equalsIgnoreCase(e.getActionCommand())) {
-			try {
-				parent.getDao().delete(user);
-			} catch (DatabaseException m) {
-				JOptionPane.showMessageDialog(this, m.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-			}
-		}
+
 		this.setVisible(false);
 		parent.showBrowsePanel();
+		}
 	}
+
 }

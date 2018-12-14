@@ -21,6 +21,7 @@ public class MainFrame extends JFrame {
 	private AddPanel addPanel;
     private EditPanel editPanel;
 	private DetailsPanel detailsPanel;
+	private DeletePanel deletePanel;
 	private UserDAO dao;
 
 
@@ -120,6 +121,18 @@ public class MainFrame extends JFrame {
 
     public void showDetailsPanel() {
         showPanel(getDetailsPanel());
+    }
+    private DeletePanel getDeletePanel() {
+    	
+        if (deletePanel == null) {
+        	deletePanel = new DeletePanel(this);
+        }
+        return deletePanel;
+    }
+
+    public void showDeletePanel() {
+
+        showPanel(getDeletePanel());
     }
     
 }

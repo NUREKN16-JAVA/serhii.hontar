@@ -180,24 +180,28 @@ public class BrowsePanel extends JPanel implements ActionListener{
         if (action.equalsIgnoreCase("add")) {
             this.setVisible(false);
             parent.showAddPanel();
-        } else if (action.equalsIgnoreCase("details")) {
-            User selectedUser = getSelectedUser();
-            JOptionPane.showMessageDialog(this, selectedUser.toString(), "User info", JOptionPane.INFORMATION_MESSAGE);
-        } else if (action.equalsIgnoreCase("delete")) {
+        }
+        if (action.equalsIgnoreCase("details")) {
+        	 this.setVisible(false);
+        	parent.showDetailsPanel();
+        } 
+        if (action.equalsIgnoreCase("delete")) {
             User selectedUser = getSelectedUser();
             if (selectedUser != null) {
-                deleteUser(selectedUser);
+            	this.setVisible(false);
+            	 deleteUser(selectedUser);
+            	 parent.showDeletePanel();          
             }
-        } else if (action.equalsIgnoreCase("edit")) {
-            int selectedRow = userTable.getSelectedRow();
-            int selectedColumn = userTable.getSelectedColumn();
-
-            if (selectedRow != -1 | selectedColumn != -1) {
-                this.setVisible(false);
-                parent.showEditPanel();
-            } else {
-                JOptionPane.showMessageDialog(this, SELECT_MESSAGE,
-                        "Error", JOptionPane.ERROR_MESSAGE);
+        } 
+			if (action.equalsIgnoreCase("edit")) {
+				int selectedRow = userTable.getSelectedRow();
+				int selectedColumn = userTable.getSelectedColumn();
+				if (selectedRow != -1 | selectedColumn != -1) {
+				this.setVisible(false);
+				 parent.showEditPanel();
+				} else {
+				JOptionPane.showMessageDialog(this, SELECT_MESSAGE,
+				                        "Error", JOptionPane.ERROR_MESSAGE);	        	
             }
         }
 	}
