@@ -99,7 +99,7 @@ public void setConnectionFactory(ConnectionFactory connectionFactory) {
                 user.setId(new Long(resultSet.getLong(1)));
                 user.setFirstName(resultSet.getString(2));
                 user.setLastName(resultSet.getString(3));
-                user.setDateOfBirthd(resultSet.getDate(4));
+                user.setDateOfBirth(resultSet.getDate(4));
                 result.add(user);
 
             }

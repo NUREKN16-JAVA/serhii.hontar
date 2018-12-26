@@ -154,7 +154,7 @@ public class EditPanel extends JPanel implements ActionListener {
                 user.setLastName(getLastNameField().getText());
                 DateFormat format = DateFormat.getDateInstance();
                 try {
-                    user.setDateOfBirthd(format.parse(getDateOfBirthField().getText()));
+                    user.setDateOfBirth(format.parse(getDateOfBirthField().getText()));
                 } catch (Exception e1) {
                     JOptionPane.showMessageDialog(this, e1.getMessage() + "\nCorrect form is 'yyyy-mm-dd'", "Error", JOptionPane.ERROR_MESSAGE);
                     getDateOfBirthField().setBackground(Color.RED);

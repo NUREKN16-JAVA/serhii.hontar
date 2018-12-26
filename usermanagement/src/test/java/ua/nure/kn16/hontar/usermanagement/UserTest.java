@@ -64,7 +64,7 @@ public class UserTest {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(YEAR_OF_BIRTH, MONTH_OF_BIRTH_1, DAY_OF_BIRTH_1);
 		dateOfBirthd = calendar.getTime();
-		user.setDateOfBirthd(dateOfBirthd);
+		user.setDateOfBirth(dateOfBirthd);
 		assertEquals(ETALONE_AGE-1, user.getAge());
 	}
 	
@@ -74,7 +74,7 @@ public class UserTest {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(YEAR_OF_BIRTH, MONTH_OF_BIRTH_2, DAY_OF_BIRTH_2);
 		dateOfBirthd = calendar.getTime();
-		user.setDateOfBirthd(dateOfBirthd);
+		user.setDateOfBirth(dateOfBirthd);
 		assertEquals(ETALONE_AGE-1, user.getAge());
 	}
 	
@@ -84,7 +84,7 @@ public class UserTest {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(YEAR_OF_BIRTH, MONTH_OF_BIRTH_3, DAY_OF_BIRTH_3);
 		dateOfBirthd = calendar.getTime();
-		user.setDateOfBirthd(dateOfBirthd);
+		user.setDateOfBirth(dateOfBirthd);
 		assertEquals(ETALONE_AGE, user.getAge());
 	}
 	
@@ -94,7 +94,7 @@ public class UserTest {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(YEAR_OF_BIRTH, MONTH_OF_BIRTH_4, DAY_OF_BIRTH_4);
 		dateOfBirthd = calendar.getTime();
-		user.setDateOfBirthd(dateOfBirthd);
+		user.setDateOfBirth(dateOfBirthd);
 		assertEquals(ETALONE_AGE, user.getAge());
 	}
 	
@@ -104,7 +104,7 @@ public class UserTest {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(YEAR_OF_BIRTH, MONTH_OF_BIRTH_5, DAY_OF_BIRTH_5);
 		dateOfBirthd = calendar.getTime();
-		user.setDateOfBirthd(dateOfBirthd);
+		user.setDateOfBirth(dateOfBirthd);
 		assertEquals(ETALONE_AGE, user.getAge());
 	}
 

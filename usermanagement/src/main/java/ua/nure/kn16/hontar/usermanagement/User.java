@@ -50,7 +50,7 @@ public class User {
 	public Date getDateOfBirthd() {
 		return dateOfBirthd;
 	}
-	public void setDateOfBirthd(Date dateOfBirthd) {
+	public void setDateOfBirth(Date dateOfBirthd) {
 		this.dateOfBirthd = dateOfBirthd;
 	}
 	public Object getFullName() {

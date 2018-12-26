@@ -128,7 +128,7 @@ public class AddPanel extends JPanel implements ActionListener {
             user.setLastName(getLastNameField().getText());
             DateFormat format = DateFormat.getDateInstance();
             try {
-                user.setDateOfBirthd(format.parse(getDateOfBirthField().getText()));
+                user.setDateOfBirth(format.parse(getDateOfBirthField().getText()));
             } catch (ParseException e1) {
              
                 getDateOfBirthField().setBackground(Color.RED);
