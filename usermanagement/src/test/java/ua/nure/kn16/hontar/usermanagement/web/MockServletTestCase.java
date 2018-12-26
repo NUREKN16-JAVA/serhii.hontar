@@ -41,9 +41,6 @@ public abstract class MockServletTestCase extends BasicServletTestCaseAdapter {
 		super.tearDown();
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+
 
 }
