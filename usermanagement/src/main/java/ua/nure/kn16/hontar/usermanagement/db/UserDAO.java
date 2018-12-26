@@ -28,6 +28,12 @@ public interface UserDAO {
 	 * @param 
 	 * @return 
 	 */
+	public Collection<User> find(String firstName, String lastName) throws DatabaseException;
+	/**
+	 * 
+	 * @param 
+	 * @return 
+	 */
 	public void update(final User user) throws DatabaseException;
 	/**
 	 * 
